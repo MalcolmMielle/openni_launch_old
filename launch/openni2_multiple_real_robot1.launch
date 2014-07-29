@@ -29,6 +29,9 @@
   <!-- Disable bond topics by default -->
   <arg name="respawn" default="false" />
 
+<group ns="robot1/">
+  <param name="tf_prefix" value="robot1" />
+
   <!-- Start nodelet manager in top-level namespace -->
   <arg name="manager" value="$(arg camera)_nodelet_manager" />
   <arg name="debug" default="false" /> <!-- Run manager in GDB? -->
@@ -38,8 +41,7 @@
   </include>
 
   <!-- Push down all topics/nodelets into "camera" namespace -->
-  <group ns="robot1/">
-  <param name="tf_prefix" value="robot1" />
+  
   <group ns="$(arg camera)">
 
     <!-- Load driver -->
