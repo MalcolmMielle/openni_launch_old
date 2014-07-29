@@ -2,7 +2,7 @@
 <launch>
 
   <!-- Name here should NOT be globally qualified (node names cannot contain /) -->
-  <arg name="name" />
+  <arg robot0/name="name" />
 
   <!-- Optionally launch manager in GDB, for debugging -->
   <arg name="debug" default="false" />
