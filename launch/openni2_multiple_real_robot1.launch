@@ -33,13 +33,13 @@
   <param name="tf_prefix" value="robot1" />
 
   <!-- Start nodelet manager in top-level namespace -->
-  <arg name="manager" value="/robot1/$(arg camera)_nodelet_manager" />
+  <arg name="manager" value="$(arg camera)_nodelet_manager" />
   <arg name="debug" default="false" /> <!-- Run manager in GDB? -->
   <include file="$(find openni2_launch)/launch/includes/manager.launch">
     <arg name="name" value="$(arg manager)" />
     <arg name="debug" value="$(arg debug)" />
   </include>
-
+</group> <!-- camera -->
   <!-- Push down all topics/nodelets into "camera" namespace -->
   
   <group ns="$(arg camera)">
