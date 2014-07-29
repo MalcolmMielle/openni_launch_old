@@ -2,7 +2,7 @@
 <launch>
 
   <!-- Name here should NOT be globally qualified (node names cannot contain /) -->
-  <arg robot0/name="name" />
+  <arg name="name" />
 
   <!-- Optionally launch manager in GDB, for debugging -->
   <arg name="debug" default="false" />
@@ -12,10 +12,9 @@
        doesn't die when you hit a break point -->
   <param if="$(arg debug)" name="/bond_disable_heartbeat_timeout" value="true" />
 
-<group ns="robot0/">
-  <param name="tf_prefix" value="robot0" />
+
   <!-- Nodelet manager -->
   <node pkg="nodelet" type="nodelet" name="camera_nodelet_manager" args="manager"
         output="screen" launch-prefix="$(arg launch_prefix)" />
-</group>
+
 </launch>
