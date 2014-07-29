@@ -1,7 +1,6 @@
 <!-- Start nodelet manager -->
 <launch>
-<group ns="robot0/">
-  <param name="tf_prefix" value="robot0" />
+
   <!-- Name here should NOT be globally qualified (node names cannot contain /) -->
   <arg name="name" />
 
@@ -13,6 +12,8 @@
        doesn't die when you hit a break point -->
   <param if="$(arg debug)" name="/bond_disable_heartbeat_timeout" value="true" />
 
+<group ns="robot0/">
+  <param name="tf_prefix" value="robot0" />
   <!-- Nodelet manager -->
   <node pkg="nodelet" type="nodelet" name="$(arg name)" args="manager"
         output="screen" launch-prefix="$(arg launch_prefix)" />
